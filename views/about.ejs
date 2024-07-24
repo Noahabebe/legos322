@@ -1,0 +1,63 @@
+<!-- ********************************************************************************
+* 
+*  WEB322 – Assignment 4
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+*  
+*  Name: Noah Abebe Student ID: 142483239 Date: 5/31/24
+******************************************************************************** -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body tabindex="-1">
+
+  <%- include('partials/navbar', {page: '/about'}) %>
+
+  <div class="container mx-auto p-6">
+
+    <div class="hero btn-primary rounded-lg p-6 mb-8 shadow-lg">
+      <div class="hero-content text-center">
+        <div class="max-w-lg mx-auto">
+          <h1 class="text-5xl font-bold mb-4">About</h1>
+          <p class="text-lg">Discover more about me, my interests, and the exciting journey I'm on!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div class="flex justify-center">
+        <img class="w-1/2 md:w-1/2 rounded-lg shadow-md" src="/image/photo bg.png" alt="Profile Image" />
+      </div>
+
+     
+      <div class="prose lg:prose-xl text-gray-700">
+        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+        <p>Hello! My name is Noah Abebe. I'm an avid Lego enthusiast and a passionate computer programming student at Seneca College. My journey in the tech world is just beginning, and I'm excited about where it will lead me!</p>
+        
+        <h3 class="text-2xl font-semibold mt-4">Hobbies & Interests</h3>
+        <ul class="list-disc pl-6">
+          <li>Building complex Lego models that challenge my creativity.</li>
+          <li>Exploring new technologies and keeping up with the latest trends in programming.</li>
+          <li>Reading sci-fi novels and dreaming about future tech advancements.</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-4">Get in Touch</h3>
+        <p>Feel free to connect with me if you'd like to chat about tech, Lego, or any exciting projects!</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

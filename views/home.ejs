@@ -1,0 +1,82 @@
+<!-- /******************************************************************************** 
+ * 
+ *  WEB322 – Assignment 4
+ * 
+ *  I declare that this assignment is my own work in accordance with Seneca's 
+ *  Academic Integrity Policy: 
+ *  
+ *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+ *  
+ *  Name: Noah Abebe Student ID: 142483239 Date:5/31/24
+ ********************************************************************************/ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lego Collection</title>
+   <link rel="stylesheet" href="/css/main.css" />
+ </head>
+ 
+ <body tabindex="-1">
+   <%- include('partials/navbar', {page: "/home"}) %>
+ 
+   <div class="container mx-auto">
+     
+     <div class="hero bg-base-200 rounded-lg p-6 mb-6">
+       <div class="hero-content text-center">
+         <div class="max-w-md mx-auto">
+           <h1 class="text-5xl font-bold">Welcome</h1>
+           <p class="py-6">Unleash your inner builder and embark on a fascinating journey through the colorful realm of Lego.</p>
+           <a href="/lego/sets" class="btn btn-primary">Get Started Now</a>
+         </div>
+       </div>
+     </div>
+ 
+     
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+       <div class="card bg-base-100 shadow-xl rounded-lg overflow-hidden">
+         <figure>
+           <img id="third" class="w-full" src="https://www.lego.com/cdn/cs/set/assets/bltee88e5e65f00bd00/42115.jpg" alt="Lego set" />
+         </figure>
+         <div class="card-body p-4 flex flex-col justify-between">
+           <h2 class="card-title text-lg font-semibold mb-2">Technic</h2>
+           <div class="card-actions mt-auto flex justify-end">
+             <a href="/lego/set/10077-1" class="btn btn-primary">View</a>
+           </div>
+         </div>
+       </div>
+ 
+      
+       <div class="card bg-base-100 shadow-xl rounded-lg overflow-hidden">
+         <figure>
+           <img id="first" class="w-full" src="https://stoysnetcdn.com/lego/lego51515/lego51515_1.jpg" alt="Lego Set" />
+         </figure>
+         <div class="card-body p-4 flex flex-col justify-between">
+           <h2 class="card-title text-lg font-semibold mb-2">Mindstorms</h2>
+           <div class="card-actions mt-auto flex justify-end">
+             <a href="/lego/set/1886411565-1" class="btn btn-primary">View</a>
+           </div>
+         </div>
+       </div>
+ 
+       
+       <div class="card bg-base-100 shadow-xl rounded-lg overflow-hidden">
+         <figure>
+           <img id="second" class="w-full" src="https://www.lego.com/cdn/cs/set/assets/bltdbe54ca998d12d08/17101.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1" alt="Lego Set" />
+         </figure>
+         <div class="card-body p-4 flex flex-col justify-between">
+           <h2 class="card-title text-lg font-semibold mb-2">Boost</h2>
+           <div class="card-actions mt-auto flex justify-end">
+             <a href="/lego/set/40303-1" class="btn btn-primary">View</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </body>
+ 
+ </html>
+ 

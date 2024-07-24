@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Set Details</title>
+ 
+  
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+ 
+  <%- include('partials/navbar', { page: '' }) %>
+
+ 
+  <div class="hero bg-gray-100 text-white py-6 px-4 text-center mb-8">
+    <h1 class="text-4xl font-bold mb-10 btn btn-primary"><%= set.name %></h1>
+  </div>
+
+ 
+  <div class="content mx-auto max-w-3xl px-4">
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+      
+      <img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-full h-auto object-cover rounded-lg mb-6">
+
+     
+      <div class="text-gray-700">
+        <h2 class="text-2xl font-semibold mb-4">Set Information</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Name:</strong> <%= set.name %></li>
+          <li><strong>Theme:</strong> <%= set.theme_id %></li>
+          <li><strong>Year Released:</strong> <%= set.year %></li>
+          <li><strong>Number of Parts:</strong> <%= set.num_parts %></li>
+        </ul>
+      </div>
+
+      
+      <div id="quote" class="mt-8 bg-gray-100 p-4 rounded-md shadow-inner">
+        <h3 class="text-xl font-semibold mb-2">Inspirational Quote</h3>
+        <p id="quoteContent" class="text-gray-600 italic"></p>
+        <p id="quoteAuthor" class="text-gray-500 text-right mt-2"></p>
+      </div>
+
+      
+      <div class="mt-8">
+        <a href="#" onclick="history.back(); return false;" class="btn btn-primary rounded">Back</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('quoteContent').textContent = `"${data.content}"`;
+          document.getElementById('quoteAuthor').textContent = `- ${data.author}`;
+        })
+        .catch(error => {
+          console.error('Error fetching quote:', error);
+        });
+    });
+  </script>
+</body>
+</html>

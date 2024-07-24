@@ -1,0 +1,38 @@
+<!--/********************************************************************************
+* 
+*  WEB322 – Assignment 4 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+*  
+*  Name: Noah Abebe Student ID: 142483239 Date:5/31/24
+********************************************************************************/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+  <%- include('partials/navbar', {page:}) %>
+
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+          <img src="https://i0.pickpik.com/photos/286/573/109/error-not-found-404-lego-preview.jpg" class="max-w-sm rounded-lg shadow-2xl" />
+          <div>
+            <h1 class="text-5xl font-bold">ERROR: 404</h1>
+            <p class="py-6">Oop! We can't find what you are looking for. </p>
+            <p class="text-sm"><%= message %></p>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>

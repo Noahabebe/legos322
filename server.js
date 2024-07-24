@@ -9,65 +9,66 @@
 *  Name: Noah Abebe Student ID: 142483239 Date:5/31/24
 * 
 ********************************************************************************/ 
-
 const express = require("express");
 const app = express();
-const port = 3000; 
-const path = require("path"); 
+const port = 3002;
+const path = require("path");
+const fs = require('fs');
+
 
 const legoData = require("./modules/legoSets");
+
+app.set('view engine', 'ejs');
+
 
 app.use(express.static(path.join(__dirname, "public")));
 
 
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "home.html"));
-  });
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
-  app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "about.html"));
-  });
-  
-  app.get("/", (req, res) => {
-    res.send("Assignment 3: Noah Abebe - 142483239");
-  });
 
- 
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 
-  app.get("/lego/sets/", (req, res) => {
-    const theme = req.query.theme; 
-    if (theme)
-    {
-        legoData.initialize().then(() => {
-            legoData.getSetsByTheme(theme).then((sets)=> {
-                res.send(sets); 
-            });
-        });
-    }
-    else 
-    {
-        legoData.initialize().then(() => {
-            legoData.getAllSets().then((sets)=> {
-                res.send(sets); 
-            });
-        }); 
-    }
-}); 
 
-app.get("/lego/sets/:set_num", (req, res) => {
+const csvFilePath = path.join(__dirname, 'sets.csv');
+const csvData = fs.readFileSync(csvFilePath, 'utf-8');
+const legoSets = csvData.split('\n').slice(1).map(row => {
+    const [set_num, name, year, theme_id, num_parts, img_url] = row.split(',');
+    return { set_num, name, year, theme_id, num_parts, img_url };
+});
 
-  legoData.initialize().then(() => {
-      legoData.getSetByNum(req.params.set_num).then((sets=> {
-          res.send(sets); 
-      }))
-      .catch((err) => {
-          res.send(err); 
-      }); 
-  }); 
-}); 
 
- 
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+app.get('/lego/sets', (req, res) => {
+    res.render('sets', { sets: legoSets });
+});
 
+
+app.get("/lego/set/:num", (req, res) => {
+  legoData.initialize()
+    .then(() => {
+      const setNum = req.params.num; 
+
+     
+      console.log("Requested Set Number:", setNum);
+
+      return legoData.getSetByNum(setNum);
+    })
+    .then((set) => {
+     
+      res.render("set", { set: set });
+    })
+    .catch((err) => {
+     
+      console.error("Error fetching set details:", err);
+      res.status(404).render('404', { message: `Set not found with set_num: ${req.params.num}` });
+    });
+});
+
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
