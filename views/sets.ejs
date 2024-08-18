@@ -15,9 +15,9 @@
     <div class="hero bg-base-200 text-white py-6 px-4 text-left mb-8">
       <h1 class="text-purple-4xl font-bold mb-30">Filters</h1>
       <div class="filters flex justify-center space-x-4">
-        <a href="/lego/sets?theme=technic" class="btn btn-primary rounded">Technic</a>
-        <a href="/lego/sets?theme=boost" class="btn btn-primary rounded">Boost</a>
-        <a href="/lego/sets?theme=mindstorms" class="btn btn-primary rounded">Mindstorms</a>
+        <a href="/lego/sets?theme=Technic" class="btn btn-primary rounded">Technic</a>
+        <a href="/lego/sets?theme=Boost"  class="btn btn-primary rounded">Boost</a>
+        <a href="/lego/sets?theme=Mindstorms" class="btn btn-primary rounded">Mindstorms</a>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
               <tr class="border-b">
                 <td class="py-3 px-6"><img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-20 h-auto object-contain"></td>
                 <td class="py-3 px-6"><%= set.name %></td>
-                <td class="py-3 px-6"><a href="/lego/sets?theme=<%= set.theme_id %>" class="text-base-600 hover:underline"><%= set.theme_id %></a></td>
+                <td class="py-3 px-6"><a href="/lego/sets?theme=<%= set.Theme.name %>" class="text-base-600 hover:underline"><%= set.Theme.name %></a></td>
                 <td class="py-3 px-6"><%= set.year %></td>
                 <td class="py-3 px-6"><%= set.num_parts %></td>
                 <td class="py-3 px-6"><a href="/lego/set/<%= set.set_num %>" class="btn btn-primary rounded">Details</a></td>

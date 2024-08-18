@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>User History</title>
+  </head>
+  <body>
+    <%- include('partials/navbar', {page: '/userHistory'}) %>
+
+    <div class="container mx-auto my-5">
+      <div
+        class="hero rounded hero-lg bg-base-200 bg-cover bg-center"
+        style="background-image: url(/images/944250.jpg)"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center m-6">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold"><%= session.user.userName %></h1>
+            <p class="py-6">User History: <%= session.user.email %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto mt-6">
+        <table class="table w-full overflow-hidden">
+          <thead>
+            <tr>
+              <th>Login Date/Time</th>
+              <th>Client Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% session.user.loginHistory.forEach(history => { %>
+            <tr>
+              <td>
+                <div class="flex">
+                  <p><%= history.dateTime %></p>
+                </div>
+              </td>
+              <td>
+                <div class="flex">
+                  <p><%= history.userAgent %></p>
+                </div>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

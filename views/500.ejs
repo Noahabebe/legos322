@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+  <%- include('partials/navbar', {page: '' }) %>
+
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+          <img src="https://i0.pickpik.com/photos/281/362/673/error-500-server-preview.jpg" class="max-w-sm rounded-lg shadow-2xl" />
+          <div>
+            <h1 class="text-5xl font-bold">ERROR: 500</h1>
+            <p class="py-6">Oops! Something went wrong on our end. Please try again later.</p>
+            <p class="text-sm"><%= message %></p>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>
